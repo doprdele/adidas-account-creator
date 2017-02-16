@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import requests
 import time
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from GmailDotEmailGenerator import GmailDotEmailGenerator
 
 def account_successfully_created(response):
@@ -31,7 +31,7 @@ for email in \
   csrftoken = BeautifulSoup(r.text).find('input',
       { 'name': 'CSRFToken' }).get('value')
 
-  print "** Found CSRFToken: {0}".format(csrftoken)
+  print("** Found CSRFToken: {0}".format(csrftoken))
 
   s.headers.update({
     'Origin': 'https://cp.adidas.com',
@@ -63,7 +63,7 @@ for email in \
         } )
 
 
-  print "Username = {0}, Password = {1}, Account created? {2}".format(email, password, account_successfully_created(r))
+  print("Username = {0}, Password = {1}, Account created? {2}".format(email, password, account_successfully_created(r)))
 
   time.sleep(5)
 # print dir(r)
